@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+<br>
+Escolha uma cor <input type="color">
+
+<script>
+    var paleta = document.querySelector('input');//coloca o input no javascript
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var desenha = false;//false=nao desenha, true=desenha
+
+  // atribuindo diretamente a função anônima
+   tela.onmousemove = function(evento) {
+
+        if(desenha) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = paleta.value; //cor escolhida no input html
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+
+    tela.onmousedown = function() {//executar um código quando o mouse é pressionado
+
+        desenha = true;
+    }
+
+     tela.onmouseup = function() {//quando o botão do mouse é solto
+
+        desenha = false;
+    }
+
+</script>

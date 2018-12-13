@@ -1,0 +1,26 @@
+<canvas width="600" height="400"></canvas>
+
+<script type="text/javascript">
+	var tela = document.querySelector('canvas');
+	var pincel = tela.getContext('2d');
+
+	pincel.fillStyle = 'grey';
+	pincel.fillRect(0,0,600,400);
+
+	function desenhaCirculo(evento){
+
+		var x = event.pageX - tela.offsetLeft;//coordenada do click | offsetLeft permite ignorar amedida do espaçoem branco aproximando mais do zero dentrodo da tela 
+		var y = event.pageY - tela.offsetTop;//coordenada do click | offsetTop permite ignorar amedida do espaçoem branco aproximando mais do zero dentrodo da tela
+		pincel.fillStyle = 'blue';//style cor azul
+		pincel.beginPath();//iniciar
+		pincel.arc(x,y,10,0,2*3.14);//arc informa o tipo da forma, parametros do circulo
+		pincel.fill();//inicia a criação do codigo acima
+
+		//alert(x + ',' + y); //alerta de mensagem na tela
+		console.log(evento);//mostra resultado no console do navegador
+	}
+
+
+	tela.onclick = desenhaCirculo;
+
+</script>

@@ -1,0 +1,37 @@
+<canvas width="600" height="400"></canvas><!--tag HTML, canvas=tela-->
+
+<script type="text/javascript">
+	// " . " ele pede alguma coisa
+	var tela = document.querySelector('canvas');//query coleta do Canvas o conteudo e guarda na var tela
+	var pincel = tela.getContext('2d'); //tipo de pincel, solicitação 2D e guarda na var pincel, função()
+
+	pincel.fillStyle = 'Lightgrey'; // cor para ser utilizada , fillStyle sempre antes do fillRect
+	pincel.fillRect(0,0, 600, 400); // apartir dar coordenadas x,y(0,0) com tamanho w,h(600, 400)
+
+	pincel.fillStyle = 'green';
+	pincel.fillRect(0,0,200,400);
+
+	pincel.fillStyle = 'red';
+	pincel.fillRect(400,0,200,400);
+
+	pincel.fillStyle='yellow';
+	pincel.beginPath(); //iniciar/começar um caminho, função
+	pincel.moveTo(300,200); //coordenadas para mover
+	pincel.lineTo(200,400); //linha vai ate x e depois y, 1º ponto
+	pincel.lineTo(400,400); //linha vai ate x e depois y, 2º ponto
+	pincel.fill();// preencher
+
+	pincel.fillStyle='black';
+	pincel.beginPath();
+	pincel.moveTo(300,200); // cria ponto central
+	pincel.lineTo(200,0); //cria linha 
+	pincel.lineTo(400,0);
+	pincel.fill();
+
+	pincel.fillStyle='blue';
+	pincel.beginPath();
+	pincel.arc(300,200,50, 0, 2*3.14);//arc = desenhar circulo| x,y,raio,ponto inicio,ponto final
+	pincel.fill();
+
+
+</script>
